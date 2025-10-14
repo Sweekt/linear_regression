@@ -22,3 +22,8 @@ plt.ylabel('price')
 plt.plot(data['km'], data['approx'], color="red")
 
 plt.show()          # Ouvre la fenêtre et affiche le graphique
+
+target = int(input('Enter the target mileage: '))
+print(target)
+output = theta['theta0'].iloc[-1] + ((target - mu) / sigma) * theta['theta1'].iloc[-1]
+print(output)

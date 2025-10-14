@@ -28,13 +28,13 @@ def gradient_descent(error0, error1, learning_rate, theta0, theta1):
 i = 0
 
 while i < 1000:
+    learning_rate = 0.07
     predictions = model(data['scaled'])
     error0 = sum(error(predictions)) / len(error(predictions))
-    print(error0)
     error1 = sum(error(predictions) * data['scaled'] / len(error(predictions)))
-    theta0, theta1 = gradient_descent(error0, error1, 0.07, theta0, theta1)
-    print(theta0, theta1)
+    theta0, theta1 = gradient_descent(error0, error1, learning_rate, theta0, theta1)
     i += 1
-
+    if i == 500 | i == 250:
+        learning_rate /= 2
 newline = pd.DataFrame([{'col1': theta0, 'col2': theta1}])
 newline.to_csv('model.csv', mode='a', header=False, index=False)

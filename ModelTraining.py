@@ -74,6 +74,6 @@ while i < 1000:
         print(f"MAE for iteration {i}: {error0}")
     i += 1
     if i == 500 | i == 250:
-        learning_rate /= 2
+        learning_rate /= 10
 
 safe_append_to_csv('model.csv', {'col1': theta0, 'col2': theta1})
